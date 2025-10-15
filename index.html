@@ -1,0 +1,177 @@
+<!--
+Starter single-file portfolio website for a Data Analyst freelancer.
+Instructions: Save this as index.html and publish on GitHub Pages (see steps below).
+Replace placeholder text and images with your content.
+--> 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shivam Chaudhary — Data Analyst</title>
+  <meta name="description" content="Data analytics, Power BI dashboards & campaign analysis for small businesses." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
+  <style>
+    :root{--accent:#0b61ff;--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial}
+    *{box-sizing:border-box}html,body{height:100%;margin:0;background:linear-gradient(180deg,#071022 0%, #041021 100%);color:#e6eef8}
+    .container{max-width:1000px;margin:32px auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#1dd1a1);display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:15px}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:28px;align-items:center}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:20px;border-radius:12px}
+    h1{font-size:28px;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 16px}
+    .cta{display:inline-block;padding:10px 14px;background:var(--accent);color:white;border-radius:10px;text-decoration:none;font-weight:600}
+    .services{display:flex;gap:12px;margin-top:18px}
+    .service{flex:1;padding:14px;background:rgba(255,255,255,0.02);border-radius:10px}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .pf-item{height:160px;border-radius:10px;overflow:hidden;background:#061423;display:flex;flex-direction:column}
+    .pf-item img{width:100%;height:100%;object-fit:cover}
+    footer{margin-top:36px;color:var(--muted);font-size:14px;text-align:center}
+    .contact-form{display:flex;flex-direction:column;gap:8px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:inherit}
+    .muted{color:var(--muted)}
+    /* responsive */
+    @media(max-width:880px){.hero{grid-template-columns:1fr}.portfolio-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">SC</div>
+        <div>
+          <div style="font-weight:700">Shivam Chaudhary</div>
+          <div class="muted" style="font-size:13px">Data Analytics · Power BI · Campaign Analysis</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="card">
+          <h1>Helping small businesses make data-driven decisions</h1>
+          <p class="lead">I build Power BI dashboards, analyze ad campaign performance and deliver actionable reports that help small teams increase revenue and reduce cost.</p>
+          <a class="cta" href="#contact">Get a free consult</a>
+
+          <div class="services" style="margin-top:18px">
+            <div class="service">
+              <strong>Power BI Dashboards</strong>
+              <div class="muted" style="font-size:13px;margin-top:8px">Interactive dashboards, KPI trackers, and executive summaries.</div>
+            </div>
+            <div class="service">
+              <strong>Campaign Analysis</strong>
+              <div class="muted" style="font-size:13px;margin-top:8px">Ad performance, attribution, ROAS & channel mix recommendations.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <div style="font-size:13px;color:var(--muted)">Quick facts</div>
+          <div style="display:flex;gap:12px;margin-top:10px">
+            <div style="flex:1">
+              <div style="font-size:20px;font-weight:700">3+</div>
+              <div class="muted" style="font-size:12px">Years experience</div>
+            </div>
+            <div style="flex:1">
+              <div style="font-size:20px;font-weight:700">20+</div>
+              <div class="muted" style="font-size:12px">Projects</div>
+            </div>
+          </div>
+          <div style="margin-top:12px;font-size:13px">Available for freelance & remote work. Open to short-term projects and retainers.</div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <div style="font-weight:700;margin-bottom:8px">Contact</div>
+          <div class="muted" style="font-size:13px">Email: <a href="mailto:shivam@example.com" style="color:var(--accent)">shivam@example.com</a></div>
+          <div class="muted" style="font-size:13px">LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" style="color:var(--accent)">yourprofile</a></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="services" style="margin-top:20px">
+      <div class="card">
+        <h2>Services</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+          <div>
+            <h3>Data Analytics</h3>
+            <div class="muted">Exploratory data analysis, customer & sales insights, cohort analysis, segmentation.</div>
+          </div>
+          <div>
+            <h3>Power BI & Reporting</h3>
+            <div class="muted">End-to-end dashboarding: data model, DAX measures, visuals and story-telling.</div>
+          </div>
+          <div>
+            <h3>Campaign Analysis</h3>
+            <div class="muted">Ad attribution, UTM analysis, funnel performance and optimization recommendations.</div>
+          </div>
+          <div>
+            <h3>Ad-hoc consulting</h3>
+            <div class="muted">One-off reports, training sessions, or dashboard handovers.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" style="margin-top:20px">
+      <div class="card">
+        <h2>Portfolio</h2>
+        <p class="muted">Screenshots and short case-studies. Replace these placeholders with real images and short bullets about impact (e.g., "Increased ROAS by 40% in 2 months").</p>
+
+        <div class="portfolio-grid" style="margin-top:12px">
+          <div class="pf-item"><img src="https://via.placeholder.com/800x600?text=Dashboard+1" alt="Dashboard 1"></div>
+          <div class="pf-item"><img src="https://via.placeholder.com/800x600?text=Dashboard+2" alt="Dashboard 2"></div>
+          <div class="pf-item"><img src="https://via.placeholder.com/800x600?text=Case+Study+1" alt="Case Study 1"></div>
+          <div class="pf-item"><img src="https://via.placeholder.com/800x600?text=Case+Study+2" alt="Case Study 2"></div>
+        </div>
+
+        <!-- Example: To embed a Power BI report, use an iframe like below (replace src with your publish-to-web URL or secure embed link).
+             Note: Power BI "publish to web" makes the report public. For private embeds use secure embed with tokens or embed through a paid workspace.
+        -->
+        <!--
+        <div style="margin-top:14px">
+          <iframe width="100%" height="500" src="https://app.powerbi.com/view?r=YOUR_PBI_EMBED_URL" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+        -->
+
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:20px">
+      <div class="card">
+        <h2>Contact</h2>
+        <p class="muted">Want a free 15-minute consult? Send a short message and I will reply within 24 hours.</p>
+
+        <!-- Simple contact form using Formspree - replace YOUR_FORMSPREE_ID -->
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="subject" placeholder="Subject">
+          <textarea name="message" rows="5" placeholder="Tell me about your project" required></textarea>
+          <button class="cta" type="submit">Send message</button>
+        </form>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">Or email me directly at <a href="mailto:shivam@example.com" style="color:var(--accent)">shivam@example.com</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Shivam Chaudhary · Built with HTML & GitHub Pages</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
