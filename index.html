@@ -1,9 +1,10 @@
 <!--
-Starter single-file portfolio website for a Data Analyst freelancer.
-Customized with Shivam Kumar's real email and LinkedIn.
-Includes interactive dashboard gallery with scrollable modal.
-Save as index.html and publish on GitHub Pages.
---> 
+Single-file portfolio website for Data Analyst freelancer (Shivam Kumar)
+Instructions:
+1. Save as index.html and publish on GitHub Pages.
+2. Change email, LinkedIn, services, or dashboard images in the commented sections.
+3. Add more dashboards by updating the `images` array in the dashboard modal script.
+-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,34 +14,96 @@ Save as index.html and publish on GitHub Pages.
   <meta name="description" content="Data analytics, Power BI dashboards & campaign analysis for small businesses." />
   <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
   <style>
-    :root{--accent:#0b61ff;--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial}
-    *{box-sizing:border-box}html,body{height:100%;margin:0;background:linear-gradient(180deg,#071022 0%, #041021 100%);color:#e6eef8}
+    /* ========================
+       GENERAL STYLES
+       ======================== */
+    :root{
+      --accent:#0b61ff;
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial
+    }
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      background:linear-gradient(180deg,#071022 0%, #041021 100%);
+      color:#e6eef8
+    }
+
+    /* Container */
     .container{max-width:1000px;margin:32px auto;padding:28px}
+
+    /* Header */
     header{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#1dd1a1);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .logo{
+      width:48px;height:48px;border-radius:8px;
+      background:linear-gradient(135deg,var(--accent),#1dd1a1);
+      display:flex;align-items:center;justify-content:center;font-weight:700
+    }
     nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:15px}
+
+    /* Hero section */
     .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:28px;align-items:center}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:20px;border-radius:12px}
+
+    /* Cards */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      padding:20px;
+      border-radius:12px
+    }
     h1{font-size:28px;margin:0 0 8px}
     p.lead{color:var(--muted);margin:0 0 16px}
-    .cta{display:inline-block;padding:10px 14px;background:var(--accent);color:white;border-radius:10px;text-decoration:none;font-weight:600}
+    .cta{
+      display:inline-block;
+      padding:10px 14px;
+      background:var(--accent);
+      color:white;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600
+    }
+
+    /* Services section */
     .services{display:flex;gap:12px;margin-top:18px}
     .service{flex:1;padding:14px;background:rgba(255,255,255,0.02);border-radius:10px}
+
+    /* Portfolio */
     .portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
-    .pf-item{height:160px;border-radius:10px;overflow:hidden;background:#061423;display:flex;flex-direction:column;position:relative;cursor:pointer}
+    .pf-item{
+      height:160px;border-radius:10px;overflow:hidden;background:#061423;
+      display:flex;flex-direction:column;position:relative;cursor:pointer
+    }
     .pf-item img{width:100%;height:100%;object-fit:cover}
-    .pf-item .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);color:white;opacity:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:10px;transition:opacity 0.3s}
+    .pf-item .overlay{
+      position:absolute;top:0;left:0;width:100%;height:100%;
+      background:rgba(0,0,0,0.6);color:white;opacity:0;
+      display:flex;flex-direction:column;justify-content:center;
+      align-items:center;text-align:center;padding:10px;transition:opacity 0.3s
+    }
     .pf-item:hover .overlay{opacity:1}
+
+    /* Footer */
     footer{margin-top:36px;color:var(--muted);font-size:14px;text-align:center}
+
+    /* Contact form */
     .contact-form{display:flex;flex-direction:column;gap:8px}
     input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:inherit}
     .muted{color:var(--muted)}
+
+    /* Responsive */
     @media(max-width:880px){.hero{grid-template-columns:1fr}.portfolio-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- ========================
+         HEADER
+         ======================== -->
     <header>
       <div class="brand">
         <div class="logo">SK</div>
@@ -56,6 +119,9 @@ Save as index.html and publish on GitHub Pages.
       </nav>
     </header>
 
+    <!-- ========================
+         HERO SECTION
+         ======================== -->
     <section class="hero">
       <div>
         <div class="card">
@@ -66,10 +132,14 @@ Save as index.html and publish on GitHub Pages.
       </div>
     </section>
 
+    <!-- ========================
+         SERVICES
+         ======================== -->
     <section id="services" style="margin-top:20px">
       <div class="card">
         <h2>Services</h2>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+          <!-- Change these services as needed -->
           <div>
             <h3>Data Analytics</h3>
             <div class="muted">Exploratory data analysis, customer & sales insights, cohort analysis, segmentation.</div>
@@ -90,11 +160,15 @@ Save as index.html and publish on GitHub Pages.
       </div>
     </section>
 
+    <!-- ========================
+         PORTFOLIO (DASHBOARDS)
+         ======================== -->
     <section id="portfolio" style="margin-top:20px">
       <div class="card">
         <h2>Portfolio</h2>
         <p class="muted">Click on a dashboard to view all pages.</p>
         <div class="portfolio-grid" style="margin-top:12px">
+          <!-- Change the folder and images below as needed -->
           <div class="pf-item">
             <a href="#" class="dashboard-link" data-dashboard="dashboards">
               <img src="dashboards/page1.png" alt="Dashboard Preview">
@@ -108,10 +182,14 @@ Save as index.html and publish on GitHub Pages.
       </div>
     </section>
 
+    <!-- ========================
+         CONTACT
+         ======================== -->
     <section id="contact" style="margin-top:20px">
       <div class="card">
         <h2>Contact</h2>
         <p class="muted">Want a free 15-minute consult? Send a short message and I will reply within 24 hours.</p>
+        <!-- Change Formspree ID here -->
         <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
           <input type="text" name="name" placeholder="Your name" required>
           <input type="email" name="email" placeholder="Email" required>
@@ -122,18 +200,47 @@ Save as index.html and publish on GitHub Pages.
       </div>
     </section>
 
+    <!-- ========================
+         FOOTER
+         ======================== -->
     <footer>
       <div>© <span id="year"></span> Shivam Kumar · Built with HTML & GitHub Pages</div>
     </footer>
   </div>
 
-  <!-- Dashboard Modal -->
-  <div id="dashboardModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;overflow-x:hidden;overflow-y:auto;padding:20px;">
-    <span id="closeModal" style="position:absolute;top:20px;right:30px;color:white;font-size:30px;font-weight:bold;cursor:pointer;">&times;</span>
+  <!-- ========================
+       DASHBOARD MODAL
+       ======================== -->
+  <div id="dashboardModal" style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    z-index:9999;
+    overflow-x:hidden;
+    overflow-y:auto;
+    padding:20px;
+  ">
+    <span id="closeModal" style="
+      position:absolute;
+      top:20px;
+      right:30px;
+      color:white;
+      font-size:30px;
+      font-weight:bold;
+      cursor:pointer;
+    ">&times;</span>
     <div id="modalContent" style="display:flex;flex-direction:column;gap:12px;align-items:center;"></div>
   </div>
 
+  <!-- ========================
+       JAVASCRIPT
+       ======================== -->
   <script>
+    // Update footer year automatically
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Dashboard modal logic
@@ -146,12 +253,21 @@ Save as index.html and publish on GitHub Pages.
       link.addEventListener('click', function(e){
         e.preventDefault();
         const folder = this.dataset.dashboard;
-        const images = ['page1.png','page2.png']; // Add all dashboard pages here
+
+        // ========================
+        // CHANGE IMAGES HERE
+        // Add all pages of the dashboard here
+        // ========================
+        const images = ['page1.png','page2.png'];
+
         modalContent.innerHTML = '';
         images.forEach(img => {
           const imageEl = document.createElement('img');
           imageEl.src = folder + '/' + img;
           imageEl.style.maxWidth = '90%';
+          imageEl.style.maxHeight = '80vh'; // ensures scrolling
+          imageEl.style.width = 'auto';
+          imageEl.style.height = 'auto';
           imageEl.style.borderRadius = '12px';
           modalContent.appendChild(imageEl);
         });
@@ -159,9 +275,9 @@ Save as index.html and publish on GitHub Pages.
       });
     });
 
+    // Close modal
     closeModal.onclick = function() { modal.style.display = 'none'; }
     window.onclick = function(event) { if(event.target == modal) modal.style.display = 'none'; }
   </script>
 </body>
 </html>
-
