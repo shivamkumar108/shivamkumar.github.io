@@ -1,7 +1,7 @@
 <!--
 Starter single-file portfolio website for a Data Analyst freelancer.
 Customized with Shivam Kumar's real email and LinkedIn.
-Includes interactive dashboard gallery.
+Includes interactive dashboard gallery with scrollable modal.
 Save as index.html and publish on GitHub Pages.
 --> 
 <!doctype html>
@@ -62,27 +62,8 @@ Save as index.html and publish on GitHub Pages.
           <h1>Helping small businesses make data-driven decisions</h1>
           <p class="lead">I build Power BI dashboards, analyze ad campaign performance and deliver actionable reports that help small teams increase revenue and reduce cost.</p>
           <a class="cta" href="#contact">Get a free consult</a>
-
-          <div class="services" style="margin-top:18px">
-            <div class="service">
-              <strong>Power BI Dashboards</strong>
-              <div class="muted" style="font-size:13px;margin-top:8px">Interactive dashboards, KPI trackers, and executive summaries.</div>
-            </div>
-            <div class="service">
-              <strong>Campaign Analysis</strong>
-              <div class="muted" style="font-size:13px;margin-top:8px">Ad performance, attribution, ROAS & channel mix recommendations.</div>
-            </div>
-          </div>
         </div>
       </div>
-
-      <aside>
-        <div class="card" style="margin-top:12px">
-          <div style="font-weight:700;margin-bottom:8px">Contact</div>
-          <div class="muted" style="font-size:13px">Email: <a href="mailto:sk8934791@gmail.com" style="color:var(--accent)">sk8934791@gmail.com</a></div>
-          <div class="muted" style="font-size:13px">LinkedIn: <a href="https://www.linkedin.com/in/shivamdataanalyst/" style="color:var(--accent)">shivamdataanalyst</a></div>
-        </div>
-      </aside>
     </section>
 
     <section id="services" style="margin-top:20px">
@@ -132,4 +113,54 @@ Save as index.html and publish on GitHub Pages.
         <h2>Contact</h2>
         <p class="muted">Want a free 15-minute consult? Send a short message and I will reply within 24 hours.</p>
         <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-          <input type="text" name="name" placeholder="Your name
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="subject" placeholder="Subject">
+          <textarea name="message" rows="5" placeholder="Tell me about your project" required></textarea>
+          <button class="cta" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Shivam Kumar · Built with HTML & GitHub Pages</div>
+    </footer>
+  </div>
+
+  <!-- Dashboard Modal -->
+  <div id="dashboardModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;overflow-x:hidden;overflow-y:auto;padding:20px;">
+    <span id="closeModal" style="position:absolute;top:20px;right:30px;color:white;font-size:30px;font-weight:bold;cursor:pointer;">&times;</span>
+    <div id="modalContent" style="display:flex;flex-direction:column;gap:12px;align-items:center;"></div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Dashboard modal logic
+    const dashboardLinks = document.querySelectorAll('.dashboard-link');
+    const modal = document.getElementById('dashboardModal');
+    const modalContent = document.getElementById('modalContent');
+    const closeModal = document.getElementById('closeModal');
+
+    dashboardLinks.forEach(link => {
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        const folder = this.dataset.dashboard;
+        const images = ['page1.png','page2.png']; // Add all dashboard pages here
+        modalContent.innerHTML = '';
+        images.forEach(img => {
+          const imageEl = document.createElement('img');
+          imageEl.src = folder + '/' + img;
+          imageEl.style.maxWidth = '90%';
+          imageEl.style.borderRadius = '12px';
+          modalContent.appendChild(imageEl);
+        });
+        modal.style.display = 'block';
+      });
+    });
+
+    closeModal.onclick = function() { modal.style.display = 'none'; }
+    window.onclick = function(event) { if(event.target == modal) modal.style.display = 'none'; }
+  </script>
+</body>
+</html>
